@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link type="text/css" href="{{url_for('static'), filename='css/styles.css'}}" rel="
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel=stylesheet />
 {% block title -%}
     {% if title %}
         <title> Про фласк - {{ title }} </title>
@@ -15,19 +15,21 @@
 <body>
 {% block content -%}
     {%- block mainmenu -%}
-        <u1>
+        <u1 class="mainmenu">
             {% for m in menu %}
-                <li> {{m}} </li>
+                <li> <a href="{{m.url}}">{{m.name}}</a> </li>
             {% endfor %}
         </u1>
     {% endblock mainmenu -%}
-    
+<div class="clear"> </div>
+<div class="content">
     {% if title %}
         <h1> this is static text, but is not it  {{ title }} </h1>
         {% else %}
         <h1> this is static text   </h1>
     {% endif -%}
 {% endblock -%}
+</div>
 </body>
 </html>
 
