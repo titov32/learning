@@ -14,10 +14,12 @@ def index():
 def about():
     return render_template('about.html', title='about flask', menu=menu)
 
-@app.route("/contact", methods=['POST'])
+@app.route("/contact", methods=['GET','POST'])
 def contact():
     if request.method == 'POST':
         print(request.form)
+    if request.method == 'GET':
+        print('Work Method GET', request.form)
     return render_template('contact.html', title='Обратная связь', menu = menu)
 
 if __name__ =='__main__':
